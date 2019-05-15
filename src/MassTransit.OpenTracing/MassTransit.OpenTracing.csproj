@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Ryan Bartsch</Authors>
+    <Company />
+    <RepositoryUrl>https://github.com/yesmarket/MassTransit.OpenTracing</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Description>MassTransit extension to configure distributed trace propagation between asynchronous message broker operations.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
