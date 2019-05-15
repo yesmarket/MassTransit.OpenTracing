@@ -15,3 +15,8 @@ var bus1 = Bus.Factory.CreateUsingRabbitMq(cfg =>
    cfg.UseOpenTracing();
 });
 ```
+
+To install from nuget;
+```
+Install-Package MassTransit.OpenTracing
+```
