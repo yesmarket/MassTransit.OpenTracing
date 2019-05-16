@@ -12,7 +12,7 @@ var bus1 = Bus.Factory.CreateUsingRabbitMq(cfg =>
       h.Password(brokerSettings.Password);
    });
 
-   cfg.UseOpenTracing();
+   cfg.PropagateOpenTracingContext();
 });
 ```
 
