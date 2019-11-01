@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using GreenPipes;
 
 namespace MassTransit.OpenTracing
 {
-    public class OpenTracingPipeSpecification : IPipeSpecification<ConsumeContext>, IPipeSpecification<PublishContext>
+    public class OpenTracingPipeSpecification : IPipeSpecification<ConsumeContext>, IPipeSpecification<PublishContext>, IPipeSpecification<SendContext>
     {
-        public IEnumerable<ValidationResult> Validate()
+       
+
+       public IEnumerable<ValidationResult> Validate()
         {
             return Enumerable.Empty<ValidationResult>();
         }
@@ -20,5 +22,10 @@ namespace MassTransit.OpenTracing
         {
             builder.AddFilter(new OpenTracingPublishFilter());
         }
-    }
+
+        public void Apply(IPipeBuilder<SendContext> builder)
+        {
+            builder.AddFilter(new OpenTracingSendFilter());
+      }
+   }
 }
