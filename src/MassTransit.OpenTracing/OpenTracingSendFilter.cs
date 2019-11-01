@@ -5,14 +5,14 @@ using OpenTracing.Util;
 
 namespace MassTransit.OpenTracing
 {
-    public class OpenTracingPublishFilter : IFilter<PublishContext>
+    public class OpenTracingSendFilter : IFilter<SendContext>
     {
         public void Probe(ProbeContext context)
         { }
 
-        public async Task Send(PublishContext context, IPipe<PublishContext> next)
+        public async Task Send(SendContext context, IPipe<SendContext> next)
         {
-            var operationName = $"Publishing Message: {context.DestinationAddress.GetExchangeName()}";
+            var operationName = $"Sending Message: {context.DestinationAddress.GetExchangeName()}";
 
             var spanBuilder = GlobalTracer.Instance.BuildSpan(operationName)
                .AsChildOf(GlobalTracer.Instance.ActiveSpan.Context)
@@ -26,10 +26,11 @@ namespace MassTransit.OpenTracing
                 GlobalTracer.Instance.Inject(
                    GlobalTracer.Instance.ActiveSpan.Context,
                    BuiltinFormats.TextMap,
-                   new MassTransitPublishContextTextMapInjectAdapter(context));
+                   new MassTransitSendContextTextMapInjectAdapter(context));
 
                 await next.Send(context);
             }
         }
+
     }
 }

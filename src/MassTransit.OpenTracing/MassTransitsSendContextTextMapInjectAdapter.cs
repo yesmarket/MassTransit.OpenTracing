@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using OpenTracing;
@@ -6,10 +6,10 @@ using OpenTracing.Propagation;
 
 namespace MassTransit.OpenTracing
 {
-    public class MassTransitTextMapInjectAdapter : ITextMap
+    public class MassTransitSendContextTextMapInjectAdapter : ITextMap
     {
-        private readonly PublishContext _context;
-        public MassTransitTextMapInjectAdapter(PublishContext context)
+        private readonly SendContext _context;
+        public MassTransitSendContextTextMapInjectAdapter(SendContext context)
         {
             _context = context;
         }
