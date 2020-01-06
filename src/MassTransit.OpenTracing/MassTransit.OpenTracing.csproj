@@ -9,7 +9,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <Description>MassTransit extension to configure distributed trace propagation between asynchronous message broker operations.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
