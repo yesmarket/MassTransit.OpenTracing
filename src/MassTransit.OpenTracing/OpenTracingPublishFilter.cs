@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using GreenPipes;
 using OpenTracing.Propagation;
 using OpenTracing.Util;
